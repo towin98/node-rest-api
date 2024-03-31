@@ -1,0 +1,41 @@
+####
+
+GET http://localhost:8080/
+
+### show movies
+
+GET http://localhost:8080/movies
+
+### Get a movie
+
+GET http://localhost:8080/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
+
+### Get movies by genre
+
+GET http://localhost:8080/movies?genre=Intriga
+
+### Create a movie
+
+POST http://localhost:8080/movies
+Content-Type: application/json
+
+{
+  "sql": "SELECT * FROM users",
+  "title": "Cristian Segura",
+  "year": 2024,
+  "director": "Joss Whedon",
+  "duration": 143,
+  "poster": "https://img.fruugo.com/product/7/41/14532417_max.jpg",
+  "genre": ["Intriga"],
+  "rate": 8.0
+}
+
+#### update a movie
+PATCH http://localhost:8080/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
+Content-Type: application/json
+
+{
+  "id": 212121, // zod no guarda o no actualiza los parametros que no son incluidos en las validaciones 
+  "rate": 10,
+  "year": 2000
+}
